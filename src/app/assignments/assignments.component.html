@@ -1,0 +1,38 @@
+<!-- <p>{{titre}}</p> -->
+<!--@if (!formVisible){-->
+<main class="container">
+    <ul> 
+        @for (matiere of assignments; track matiere.nom){
+            <mat-list>
+                <nav><a routerLink="/assignment/{{matiere.id}}">
+                    <h3 mat-subheader>{{ matiere.dateLimite | date }}</h3>
+                    <mat-list-item (click)="assignmentClique(matiere)">
+                        @if (matiere.rendu){
+                            <p appRendu>Le devoir de {{ matiere.nom }} a ete rendu</p>
+                        }
+                        @else{
+                            <p appNonRendu>Le devoir de {{ matiere.nom }} n'a pas ete rendu</p>
+                        }
+                    </mat-list-item>
+                </a></nav>
+                <mat-divider></mat-divider>
+            </mat-list>
+        }
+    </ul> 
+
+    <!-- @if (assignmentSelectionne){
+        <app-assignment-detail [assignmentTransmis]="assignmentSelectionne" (delete)="onDeleteAssignment($event)"></app-assignment-detail>
+    } -->
+
+    <mat-paginator [length]="totalDocs" [pageSize]="limit" (page)="onPageChange($event)" [hidePageSize]="true" [showFirstLastButtons]="true">
+    </mat-paginator>
+    <!--<mat-paginator [length]="totalDocs" [pageSize]="limit" [pageIndex]="page - 1" (page)="onPageChange($event)" [hidePageSize]="true" [showFirstLastButtons]="true">
+    </mat-paginator>-->
+
+</main>
+<!--}-->
+<!--
+@if (formVisible){
+    <app-add-assignment (nouvelAssignment)="onNouvelAssignment($event)"></app-add-assignment>
+}
+-->

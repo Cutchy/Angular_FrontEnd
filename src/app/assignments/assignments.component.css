@@ -1,0 +1,21 @@
+.rendu{
+    color:green;
+}
+
+.nonRendu{
+    color:red;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.ajouterButton{
+    align-self: flex-end;
+    margin: 5px;
+}
+
+ul{
+    padding-right: 40px;
+}
